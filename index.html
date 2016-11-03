@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pizza Application</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+  <body ng-app="pizzaApp" ng-controller="PizzaController as pizzaCtrl">
+
+  <div class="container">
+    <h1>Tony`s Pizza</h1>
+
+     <h3>Pizza Builder</h3>
+
+     <pizza-builder search-text="pizzaCtrl.searchText"
+     items="pizzaCtrl.items"
+     new-item-added="pizzaCtrl.newItemAdded"
+     selected-items="pizzaCtrl.selectedItems"
+     on-add-item="pizzaCtrl.addItem(item)"
+     new-item-added="pizzaCtrl.newItemAdded"
+     on-close-message="pizzaCtrl.closeMessage()"></pizza-builder>
+
+  </div>
+
+    <!-- Libs -->
+    <script src="lib/angular.min.js"></script>
+    <!-- <script src="lib/angular-ui-router.min.js"></script> -->
+
+    <!-- Pizza Module -->
+    <script src="src/pizza.module.js"></script>
+    <script src="src/search.service.js"></script>
+    <script src="src/pizza.controller.js"></script>
+    <script src="src/pizza.component.js"></script>
+
+  </body>
+
+</html>

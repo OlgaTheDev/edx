@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-6">
+    <hr>
+    <h4>Topping search</h4>
+    <input class="form-control" type="text" name="search" value="" placeholder="Enter topping name"
+    ng-model="$ctrl.searchText"/>
+
+
+    <hr>
+
+    <div ng-if="$ctrl.searchText.length">
+      <h3>List of avaliable pizza toppings</h3>
+      <ul>
+        <li ng-repeat="item in $ctrl.items | filter:$ctrl.searchText as choosenItems">
+          <span ng-click="$ctrl.onAddItem({item: item})">{{item}}</span>
+        </li>
+      </ul>
+      <div class="alert alert-danger" ng-if="choosenItems.length === 0">
+        <span>No results</span>
+      </div>
+    </div>
+
+    <div class="alert alert-success" ng-show="$ctrl.newItemAdded">
+      <span>Topping added</span>
+      <button ng-click="$ctrl.onCloseMessage()" type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div ng-if="!$ctrl.searchText.length">
+      Enter search criteria above
+    </div>
+
+    <div ng-if="$ctrl.selectedItems.length">
+      <hr>
+      <h3>List of selected toppings</h3>
+      <ul>
+        <li ng-repeat="item in $ctrl.selectedItems">{{item}}</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
